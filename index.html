@@ -1,0 +1,74 @@
+
+<html>
+    <head>
+        <title>Obslog</title>
+        <style>
+            html {
+                display: table;
+                margin: auto;
+            }
+            body {
+                color: black;
+                font-size: 35;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                /* display: table-cell;*/
+                margin-top:10px;
+                vertical-align: middle;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body align="center">
+        <div align="center">
+            Havainnointi 
+            <button id="counter1">0</button>
+            &ensp; &ensp; 
+            Idealisointi
+            <button id="counter2">0</button>
+        </div>
+    </body>
+</html>
+<script>
+function increment_counter1() {
+    let counter1 = document.getElementById('counter1').innerHTML;
+    counter1++;
+    document.getElementById('counter1').innerHTML = counter1;
+
+    // Create element:
+    var todayDate1 = new Date().toISOString();
+    const dateField1 = document.createElement("p");
+    dateField1.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
+    document.body.appendChild(dateField1);
+
+    //const node1 = document.createElement("list1_2");
+    //const textnode1 = document.createTextNode(dateField1);
+    //node1.appendChild(textnode1);
+    //document.getElementById("#list1").appendChild(node1);
+   // document.querySelector("#list1").appendChild(dateField1);
+
+}
+
+function increment_counter2() {
+    let counter2 = document.getElementById('counter2').innerHTML;
+    counter2++;
+    document.getElementById('counter2').innerHTML = counter2;
+    // Create element:
+    var todayDate2 = new Date().toISOString();
+    const dateField2 = document.createElement("p");
+    dateField2.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
+    document.body.appendChild(dateField2);
+
+    //const node2 = document.createElement("list2_2");
+    //const textnode2 = document.createTextNode(dateField2);
+    //node2.appendChild(textnode2);
+    //document.getElementById("list2").appendChild(node2);
+}
+
+
+document.getElementById('counter1').addEventListener('click', increment_counter1);
+document.getElementById('counter2').addEventListener('click', increment_counter2);
+
+</script>
