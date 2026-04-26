@@ -1,0 +1,103 @@
+
+<html>
+    <head>
+        <title>Obslog</title>
+        <style>
+            body {
+                color: black;
+                font-size: 40;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                display: table-cell;
+                margin-top: 10px;                
+            }
+            button {
+                width: 150px;
+                height: 100px;
+                font-size: 30;
+            }
+            .kontaineri {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <script src="/js.js"></script>
+    </head>
+    <body align="center">
+        <div align="center" id="kontaineri">
+            &ensp; &ensp; 
+            Havainnointi 
+            <button id="laskuri1">0</button>
+            &ensp; &ensp; 
+            Idealisointi
+            <button id="laskuri2">0</button>
+            <table id="ajat">
+            <tr>
+            <th>Aika</th>
+            <th>Lkm</th>
+            </tr>
+            </table>
+        </div>
+    </body>
+</html>
+<script>
+
+    function increment_laskuri1() {
+        let laskuri1 = document.getElementById('laskuri1').innerHTML;
+        laskuri1++;
+        document.getElementById('laskuri1').innerHTML = laskuri1;
+
+        // Create element:
+        var todayDate1 = new Date().toISOString();
+        const dateField1 = document.createElement("p");
+        dateField1.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
+        document.body.appendChild(dateField1);
+        sessionStorage.setItem("dateField1", todayDate1);
+        //const node1 = document.createElement("list1_2");
+        //const textnode1 = document.createTextNode(dateField1);
+        //node1.appendChild(textnode1);
+        //document.getElementById("#list1").appendChild(node1);
+    // document.querySelector("#list1").appendChild(dateField1);
+
+    }
+
+    function increment_laskuri2() {
+        let laskuri2 = document.getElementById('laskuri2').innerHTML;
+        laskuri2++;
+        document.getElementById('laskuri2').innerHTML = laskuri2;
+        // Create element:
+        var todayDate2 = new Date().toISOString();
+        const dateField2 = document.createElement("p");
+        dateField2.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
+        document.body.appendChild(dateField2);
+        sessionStorage.setItem(todayDate2);
+
+
+        //const node2 = document.createElement("list2_2");
+        //const textnode2 = document.createTextNode(dateField2);
+        //node2.appendChild(textnode2);
+        //document.getElementById("list2").appendChild(node2);
+    }
+
+    function saveAika() {
+
+        let Aika = [{"aika": "aika","lkm": 10}];
+        
+        let localStorageKey = "Aika";
+
+        let getAikaScore = Aika;
+        let text = document.getElementById("ajat");
+        var AikaRow = "";
+
+        for(let i = 0; i < getAikaScore.length; i++){
+            AikaRow = "<tr>";
+            AikaRow += "<td>" + getAikaScore[i].aika + "</td>";
+            AikaRow += "<td>" + getAikaScore[i].lkm + "</td></tr>";
+        }
+        
+        text.innerHTML += AikaRow;
+    }
+
+    document.getElementById('laskuri1').addEventListener('click', increment_laskuri1);
+    document.getElementById('laskuri2').addEventListener('click', increment_laskuri2);
+
+</script>

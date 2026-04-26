@@ -1,83 +1,53 @@
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Obslog</title>
         <style>
-
             body {
                 color: black;
-                font-size: 40;
+                font-size: 35;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                display: table-cell;
-                margin-top:10px;
-                
+                margin-top: 10px;       
+                margin-left: 30px;      
+                margin-right: 30px;
+                text-align: center;
             }
             button {
-                width: 150px;
+                width: 200px;
                 height: 100px;
                 font-size: 30;
+                margin: 5px
             }
-            .center {
+            .kontaineri {
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-content: center;
             }
+            .pienipainike {
+                width: 70px;
+                height: 40px;
+                font-size: 30;
+                margin: 5px
+            }            
 
-            .container {
-            display: flex;
-            justify-content: center;
-            }
         </style>
     </head>
     <body align="center">
-        <div align="center" id="container">
+        <span align="center" class="kontaineri">
             &ensp; &ensp; 
-            Havainnointi 
-            <button id="counter1">0</button>
+            <button id="laskuri1">Havainnointi</button>
             &ensp; &ensp; 
-            Idealisointi
-            <button id="counter2">0</button>
-        </div>
+            <button id="laskuri2">Idealisointi</button>
+            <br />
+            &ensp; &ensp; 
+            <button id="tyhjenna" class="pienipainike">Puhdista</button>
+            &ensp; &ensp; 
+            <button id="loki" class="pienipainike">Loki</button>
+        </span>
+        <br />
+        <br />
+        <span align="center" id="aikaloki" style="width:800;overflow:hidden;cursor:pointer;padding: 10px; word-break: break-all; word-wrap: break-word; display:flex; justify-content: center; align-content: center;">
+        </span>
     </body>
+    <script src="file:///home/lennel/OmiaOhjelmia/obslog/js.js"></script>
 </html>
-<script>
-function increment_counter1() {
-    let counter1 = document.getElementById('counter1').innerHTML;
-    counter1++;
-    document.getElementById('counter1').innerHTML = counter1;
-
-    // Create element:
-    var todayDate1 = new Date().toISOString();
-    const dateField1 = document.createElement("p");
-    dateField1.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
-    document.body.appendChild(dateField1);
-
-    //const node1 = document.createElement("list1_2");
-    //const textnode1 = document.createTextNode(dateField1);
-    //node1.appendChild(textnode1);
-    //document.getElementById("#list1").appendChild(node1);
-   // document.querySelector("#list1").appendChild(dateField1);
-
-}
-
-function increment_counter2() {
-    let counter2 = document.getElementById('counter2').innerHTML;
-    counter2++;
-    document.getElementById('counter2').innerHTML = counter2;
-    // Create element:
-    var todayDate2 = new Date().toISOString();
-    const dateField2 = document.createElement("p");
-    dateField2.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
-    document.body.appendChild(dateField2);
-
-    //const node2 = document.createElement("list2_2");
-    //const textnode2 = document.createTextNode(dateField2);
-    //node2.appendChild(textnode2);
-    //document.getElementById("list2").appendChild(node2);
-}
-
-
-document.getElementById('counter1').addEventListener('click', increment_counter1);
-document.getElementById('counter2').addEventListener('click', increment_counter2);
-
-</script>
