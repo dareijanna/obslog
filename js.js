@@ -94,13 +94,6 @@
         }
     }
 
-    function inkrementoiLaskuri1() {
-        const dateField1 = document.createElement("span");
-        dateField1.innerText = new Date().toISOString().split('.')[0].split('T').join(' ');
-        document.body.appendChild(dateField1);
-        document.body.appendChild(document.createElement("br"));
-        paivitaObs();
-    }
 
     function inkrementoilaskuriidealisointi() {
         const dateField2 = document.createElement("span");
@@ -114,6 +107,7 @@
     function tyhjennaLaskurit() {
         tyhjennaObs();
     }
+
 
     document.getElementById('laskuriidealisointi').addEventListener('click', inkrementoilaskuriidealisointi);
     document.getElementById('merkinta1').addEventListener('click', paivitaObsMerkinta);
